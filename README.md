@@ -5,6 +5,7 @@ QBCore Script.
 Installation:
 1-drag and drop the folder
 2-head to qbcore/server/player.lua and add this:
+
 ``PlayerData.metadata['policepoints'] = PlayerData.metadata['policepoints'] or 0``
  
 ![image](https://cdn.discordapp.com/attachments/1010235240050077816/1202329977237032960/Screenshot_5.png?ex=65cd100c&is=65ba9b0c&hm=b8bbac7a07f308f0d744fd989507b18fbc56d68f1278332064d6fb81f389195d&)
