@@ -38,7 +38,7 @@ end)
 RegisterNetEvent('core-police:rmvppoints', function(id, amt)
     local p = QBCore.Functions.GetPlayerByCitizenId(id)
     if p.PlayerData.metadata['policepoints'] - amt < 0 then
-        return TriggerClientEvent('QBCore:Notify', source, "The player points are now negative be careful",
+        return TriggerClientEvent('QBCore:Notify', source, "Oh Oh be careful for the player points",
             'error', 7000)
     end
     if p then
