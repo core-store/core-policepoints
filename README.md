@@ -6,7 +6,7 @@ Installation:
 
 1-drag and drop the folder
 
-2-head to qbcore/server/player.lua and add this:
+2-head to qbcore/server/player.lua and add this in  QBCore.Player.CheckPlayerData:
 
 ```PlayerData.metadata['policepoints'] = PlayerData.metadata['policepoints'] or 0```
  
