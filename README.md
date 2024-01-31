@@ -3,7 +3,9 @@
 "Core-PolicePoints" is a customizable script designed to enhance the roleplay experience by introducing a dynamic points system for players with the police job. This script adds a sense of progression and achievement to the role of law enforcement, encouraging dedicated play and fostering a more immersive police roleplay environment.
 QBCore Script.
 Installation:
+
 1-drag and drop the folder
+
 2-head to qbcore/server/player.lua and add this:
 
 ``PlayerData.metadata['policepoints'] = PlayerData.metadata['policepoints'] or 0``
