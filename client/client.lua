@@ -44,7 +44,7 @@ RegisterNetEvent('core-policepoints:manageplayers', function(data)
                 description = "Click here to give " .. data.fullname .. " Police points",
                 icon = 'plus',
                 onSelect = function()
-                    Givecashinput(data.id)
+                    Giveppinput(data.id)
                 end,
 
 
@@ -75,7 +75,7 @@ end)
 RegisterNetEvent('core-police:allloppo', function(data)
     TriggerServerEvent('core-police:rmvallppp', data.icd)
 end)
-function Givecashinput(data)
+function Giveppinput(data)
     local input = lib.inputDialog('Give Policepoints',
         { { type = 'number', label = 'Points amount ', description = 'Put your amount here', icon = 'plus' } })
     if not input then return end
