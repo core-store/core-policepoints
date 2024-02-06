@@ -1,9 +1,20 @@
 local QBCore = exports[Corestore.Core]:GetCoreObject()
-local playerData = QBCore.Functions.GetPlayerData()
+local PlayerJob = nil
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    local player = QBCore.Functions.GetPlayerData()
+    PlayerJob = player.job
+end)
+AddEventHandler('onResourceStart', function(resourceName)
+    if GetCurrentResourceName() == resourceName then
+        local player = QBCore.Functions.GetPlayerData()
+        PlayerJob = player.job
+    end
+end)
 CreateThread(function()
     while true do
         Wait(Corestore.Minutes * 60 * 1000)
-        if playerData.job.name == 'police' and playerData.job.onduty then
+
+        if PlayerJob and PlayerJob.name == 'police' and PlayerJob.onduty then
             TriggerServerEvent('core-police:addpoints', Corestore.Points)
         end
     end
@@ -88,3 +99,9 @@ function REmovepp(data)
     if not input then return end
     TriggerServerEvent('core-police:rmvppoints', data, input[1])
 end
+
+function ADDpoints(Points)
+    -- body
+end
+
+exports('')
