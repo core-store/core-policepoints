@@ -100,8 +100,3 @@ function REmovepp(data)
     TriggerServerEvent('core-police:rmvppoints', data, input[1])
 end
 
-function ADDpoints(Points)
-    -- body
-end
-
-exports('')
