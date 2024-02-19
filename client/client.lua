@@ -1,24 +1,26 @@
 local QBCore = exports[Corestore.Core]:GetCoreObject()
 local PlayerJob = nil
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    local player = QBCore.Functions.GetPlayerData()
-    PlayerJob = player.job
-end)
+
 AddEventHandler('onResourceStart', function(resourceName)
     if GetCurrentResourceName() == resourceName then
         local player = QBCore.Functions.GetPlayerData()
         PlayerJob = player.job
     end
 end)
-CreateThread(function()
-    while true do
-        Wait(Corestore.Minutes * 60 * 1000)
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    local player = QBCore.Functions.GetPlayerData()
+    PlayerJob = player.job
+    CreateThread(function()
+        while true do
+            Wait(10 * 60 * 1000)
 
-        if PlayerJob and PlayerJob.name == 'police' and PlayerJob.onduty then
-            TriggerServerEvent('core-police:addpoints', Corestore.Points)
+            if PlayerJob and PlayerJob.name == 'police' and PlayerJob.onduty then
+                TriggerServerEvent('core-police:addpoints', Corestore.Points)
+            end
         end
-    end
+    end)
 end)
+
 RegisterNetEvent('core-policepoints:client:openmenu', function(data)
     QBCore.Functions.TriggerCallback('core-playermanagement:server:getpoliceofficers', function(playerss)
         local options = {}
